@@ -1,0 +1,15 @@
+{
+  "name": "@vue-cubit/replay_plugin",
+  "version": "0.1.0",
+  "description": "BLoC pattern library for vue.js 3",
+  "main": "src/index.ts",
+  "repository": "git@github.com:iendeavor/vue-cubit.git",
+  "author": "Ernest <iendeavor.github.io@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@vue-cubit/cubit": "^0"
+  },
+  "peerDependencies": {
+    "@vue-cubit/core": "^0"
+  }
+}

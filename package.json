@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "engines": {
+    "node": "^12.13.0 || ^14.15.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "version": "0.1.0",
+  "description": "Cubit for vue.js 3",
+  "main": "index.js",
+  "repository": "git@github.com:iendeavor/vue-cubit.git",
+  "author": "Ernest <iendeavor.github.io@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^27",
+    "@types/node": "^16.7.5",
+    "jest": "^27",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27",
+    "typescript": "^4"
+  }
+}
