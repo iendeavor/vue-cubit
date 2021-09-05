@@ -1,11 +1,12 @@
 <template>
   <button type="button" @click="counterCubit.increment">
-    count is: {{ counterCubit.state }}
+    count is: {{ count }}
   </button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { Change } from "@vue-cubit/cubit";
+import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
 import { CounterCubit } from "../cubit";
 
 export default defineComponent({
@@ -13,7 +14,14 @@ export default defineComponent({
   setup: () => {
     const counterCubit = new CounterCubit();
 
-    return { counterCubit };
+    const count = ref(counterCubit.state);
+    onMounted(() => counterCubit.addListener(listener))
+    onBeforeUnmount(() => counterCubit.removeListener(listener))
+    function listener (change: Change<number>) {
+      count.value = change.newState;
+    }
+
+    return { count, counterCubit };
   },
 });
 </script>

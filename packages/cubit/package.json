@@ -5,11 +5,5 @@
   "main": "src/index.ts",
   "repository": "git@github.com:iendeavor/vue-cubit.git",
   "author": "Ernest <iendeavor.github.io@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "vue": "^3"
-  },
-  "peerDependencies": {
-    "vue": "^3"
-  }
+  "license": "MIT"
 }

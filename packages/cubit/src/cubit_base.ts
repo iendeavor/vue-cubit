@@ -1,27 +1,27 @@
-import { ref, Ref, DeepReadonly } from "vue";
+import { DeepReadonly } from "ts-essentials";
 import { CubitObserver, Change, CubitPlugin } from ".";
 import { proxy } from "./utils";
 
 export abstract class CubitBase<State> {
   static observer: CubitObserver | null = null;
 
-  private stateRef: Ref<State>;
+  private stateRef: State;
 
   get state(): DeepReadonly<State> {
-    return this.stateRef.value as DeepReadonly<State>;
+    return this.stateRef as DeepReadonly<State>;
   }
 
   private listeners: Set<Listener<Change<State>>> = new Set();
 
   constructor(initialState: State) {
-    this.stateRef = ref(initialState) as Ref<State>;
+    this.stateRef = initialState;
     CubitBase.observer?.onCreated(this);
   }
 
   emit(state: State) {
-    const oldState = this.stateRef.value;
-    this.stateRef.value = state;
-    this.onChanged(new Change(oldState, this.stateRef.value));
+    const oldState = this.stateRef;
+    this.stateRef = state;
+    this.onChanged(new Change(oldState, this.stateRef));
   }
 
   onChanged(change: Change<State>) {
