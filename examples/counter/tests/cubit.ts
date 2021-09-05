@@ -1,5 +1,5 @@
 import { CounterCubit } from "../src/counter/cubit";
-import { cubitTest } from "@vue-cubit/cubit";
+import { cubitTest } from "@vue-cubit/core";
 
 describe("CounterCubit", () => {
   let todoCubit: CounterCubit;

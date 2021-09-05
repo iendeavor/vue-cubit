@@ -1,5 +1,5 @@
 import { TreeItemCubit, TreeItemState } from "../src/tree-item/cubit";
-import { cubitTest } from "@vue-cubit/cubit";
+import { cubitTest } from "@vue-cubit/core";
 
 describe("TreeItemCubit", () => {
   let cubit: TreeItemCubit;

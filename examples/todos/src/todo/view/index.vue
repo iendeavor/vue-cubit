@@ -102,7 +102,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, onBeforeUnmount, onMounted } from "vue";
-import { useCubit } from "@vue-cubit/vue-cubit";
+import { useCubit } from "@vue-cubit/core";
 import { ReplayPlugin } from "@vue-cubit/replay-plugin";
 import { HydratedPlugin } from "@vue-cubit/hydrated-plugin";
 import { TodoCubit, TodoState, filters } from "../cubit";

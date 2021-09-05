@@ -1,4 +1,4 @@
-import { Cubit, CubitPlugin } from "@vue-cubit/cubit";
+import { Cubit, CubitPlugin } from "@vue-cubit/core";
 import { Change, ChangeStack } from "./change-stack";
 
 export class ReplayPlugin<State> implements CubitPlugin<State> {

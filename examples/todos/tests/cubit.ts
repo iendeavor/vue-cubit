@@ -1,5 +1,5 @@
 import { TodoCubit, TodoState } from "../src/todo/cubit";
-import { cubitTest } from "@vue-cubit/cubit";
+import { cubitTest } from "@vue-cubit/core";
 
 describe("TodoCubit", () => {
   let todoCubit: TodoCubit;

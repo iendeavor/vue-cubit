@@ -1,4 +1,4 @@
-import { Cubit } from "@vue-cubit/cubit";
+import { Cubit } from "@vue-cubit/core";
 import { ChatState } from ".";
 
 export class ChatCubit extends Cubit<ChatState> {

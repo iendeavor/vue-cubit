@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, DeepReadonly } from "vue";
-import { useCubit } from "@vue-cubit/vue-cubit";
+import { useCubit } from "@vue-cubit/core";
 import { TreeItemCubit, TreeItem } from "../cubit";
 
 export default defineComponent({

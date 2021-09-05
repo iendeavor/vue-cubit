@@ -1,5 +1,5 @@
 import { onMounted, onBeforeUnmount, getCurrentInstance } from "vue";
-import { Cubit } from "@vue-cubit/cubit";
+import { Cubit } from "@vue-cubit/core";
 
 export const useCubit = <C extends Cubit<any>>(
   builder: () => C

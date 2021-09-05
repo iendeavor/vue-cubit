@@ -1,5 +1,5 @@
 import { MarkdownCubit, MarkdownState } from "../src/markdown/cubit";
-import { cubitTest } from "@vue-cubit/cubit";
+import { cubitTest } from "@vue-cubit/core";
 
 describe("MarkdownCubit", () => {
   let markdownCubit: MarkdownCubit;

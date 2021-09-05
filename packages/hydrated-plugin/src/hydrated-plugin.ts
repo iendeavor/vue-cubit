@@ -1,4 +1,4 @@
-import { Cubit, CubitPlugin } from "@vue-cubit/cubit";
+import { Cubit, CubitPlugin } from "@vue-cubit/core";
 
 export class HydratedPlugin<State> implements CubitPlugin<State> {
   private key: string;

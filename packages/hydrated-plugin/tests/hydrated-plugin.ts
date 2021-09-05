@@ -1,4 +1,4 @@
-import { Cubit } from "@vue-cubit/cubit";
+import { Cubit } from "@vue-cubit/core";
 import { HydratedPlugin } from "../src";
 
 class LocalStorageMock implements Storage {

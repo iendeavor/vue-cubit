@@ -7,9 +7,9 @@
   "author": "Ernest <iendeavor.github.io@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@vue-cubit/cubit": "^0"
+    "@vue-cubit/core": "^0"
   },
   "peerDependencies": {
-    "@vue-cubit/cubit": "^0"
+    "@vue-cubit/core": "^0"
   }
 }
