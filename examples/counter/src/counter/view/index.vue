@@ -1,12 +1,6 @@
 <template>
-  <div>count is: {{ counterCubit.state }}</div>
-  <button type="button" @click="counterCubit.increment">Increment</button>
-  <button type="button" @click="counterCubit.decrement">Decrement</button>
-  <button type="button" @click="counterCubit.incrementAsync">
-    Increment async
-  </button>
-  <button type="button" @click="counterCubit.decrementAsync">
-    Decrement async
+  <button type="button" @click="counterCubit.increment">
+    count is: {{ counterCubit.state }}
   </button>
 </template>
 
