@@ -1,4 +1,4 @@
-import { Cubit } from "@vue-cubit/core";
+import { Cubit } from "@vue-cubit/cubit";
 import { Todo, TodoState, filters } from ".";
 
 export class TodoCubit extends Cubit<TodoState> {

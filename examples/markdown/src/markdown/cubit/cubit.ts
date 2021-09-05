@@ -1,4 +1,4 @@
-import { Cubit } from "@vue-cubit/core";
+import { Cubit } from "@vue-cubit/cubit";
 import { MarkdownState } from ".";
 import marked from "marked";
 import { debounce } from "lodash";

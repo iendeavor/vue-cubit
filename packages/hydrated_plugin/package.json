@@ -10,6 +10,6 @@
     "@vue-cubit/cubit": "^0"
   },
   "peerDependencies": {
-    "@vue-cubit/core": "^0"
+    "@vue-cubit/cubit": "^0"
   }
 }

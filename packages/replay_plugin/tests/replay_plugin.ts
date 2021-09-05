@@ -1,4 +1,4 @@
-import { Cubit } from "../../core";
+import { Cubit } from "@vue-cubit/cubit";
 import { ReplayPlugin } from "../src";
 
 class CounterCubit extends Cubit<number> {}

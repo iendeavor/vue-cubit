@@ -1,4 +1,4 @@
-import { Cubit } from "@vue-cubit/core";
+import { Cubit } from "@vue-cubit/cubit";
 import { TreeItemState } from ".";
 import { TreeItem } from "../model";
 import { DeepReadonly } from "vue";

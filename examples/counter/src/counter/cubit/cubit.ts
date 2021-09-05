@@ -1,4 +1,4 @@
-import { Cubit } from "@vue-cubit/core";
+import { Cubit } from "@vue-cubit/cubit";
 
 export class CounterCubit extends Cubit<number> {
   constructor() {

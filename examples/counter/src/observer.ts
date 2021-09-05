@@ -1,4 +1,4 @@
-import { CubitBase, CubitObserver, Change } from "@vue-cubit/core";
+import { CubitBase, CubitObserver, Change } from "@vue-cubit/cubit";
 
 class Observer extends CubitObserver {
   onCreated(cubit: CubitBase<unknown>) {
