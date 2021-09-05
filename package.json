@@ -8,7 +8,6 @@
   ],
   "version": "0.1.0",
   "description": "Vue-cubit is a predictable state management library for Vue 3 and heavily inspired by BLoC",
-  "main": "index.js",
   "repository": "git@github.com:iendeavor/vue-cubit.git",
   "author": "Ernest <iendeavor.github.io@gmail.com>",
   "license": "MIT",
