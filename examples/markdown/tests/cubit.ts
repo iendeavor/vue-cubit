@@ -18,7 +18,7 @@ describe("MarkdownCubit", () => {
     act: (cubit) => {
       cubit.changeMarkdown("**bold**");
     },
-    wait: 1100,
+    wait: 300,
     expect: () => [
       new MarkdownState({
         markdown: "**bold**",

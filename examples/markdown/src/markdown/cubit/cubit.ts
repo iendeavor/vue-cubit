@@ -17,5 +17,5 @@ export class MarkdownCubit extends Cubit<MarkdownState> {
     );
   }
 
-  changeMarkdown = debounce(this._changeMarkdown, 1000);
+  changeMarkdown = debounce(this._changeMarkdown, 200);
 }
