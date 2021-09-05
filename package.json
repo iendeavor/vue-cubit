@@ -13,8 +13,11 @@
   "author": "Ernest <iendeavor.github.io@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "@types/jest": "^27",
     "@types/node": "^16.7.5",
+    "husky": "^7.0.2",
     "jest": "^27",
     "prettier": "^2.3.2",
     "ts-jest": "^27",
