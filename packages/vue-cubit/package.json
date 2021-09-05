@@ -1,0 +1,17 @@
+{
+  "name": "@vue-cubit/vue-cubit",
+  "version": "0.1.0",
+  "description": "BLoC pattern library for vue.js 3",
+  "main": "src/index.ts",
+  "repository": "git@github.com:iendeavor/vue-cubit.git",
+  "author": "Ernest <iendeavor.github.io@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@vue-cubit/cubit": "^0",
+    "vue": "^3"
+  },
+  "peerDependencies": {
+    "@vue-cubit/cubit": "^0",
+    "vue": "^2.0.0 || >=3.0.0"
+  }
+}

@@ -23,6 +23,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, DeepReadonly } from "vue";
+import { useCubit } from "@vue-cubit/vue-cubit";
 import { TreeItemCubit, TreeItem } from "../cubit";
 
 export default defineComponent({
@@ -34,7 +35,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const treeItemCubit = new TreeItemCubit(props.treeItem);
+    const treeItemCubit = useCubit(() => new TreeItemCubit(props.treeItem));
 
     return {
       treeItemCubit,
