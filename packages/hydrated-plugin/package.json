@@ -1,7 +1,7 @@
 {
   "name": "@vue-cubit/hydrated-plugin",
   "version": "0.1.0",
-  "description": "BLoC pattern library for vue.js 3",
+  "description": "Vue-cubit is a predictable state management library for Vue 3 and heavily inspired by BLoC",
   "main": "src/index.ts",
   "repository": "git@github.com:iendeavor/vue-cubit.git",
   "author": "Ernest <iendeavor.github.io@gmail.com>",
