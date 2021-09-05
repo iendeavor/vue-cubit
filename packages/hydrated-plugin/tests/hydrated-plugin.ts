@@ -42,7 +42,7 @@ class CounterCubit extends Cubit<number> {
   }
 }
 
-describe("hydrated_plugin", () => {
+describe("hydrated-plugin", () => {
   it("can initial plugin", () => {
     expect(
       () => new HydratedPlugin<number>("counter", global.localStorage)

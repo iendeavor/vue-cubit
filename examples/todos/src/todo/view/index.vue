@@ -103,8 +103,8 @@
 <script lang="ts">
 import { computed, defineComponent, onBeforeUnmount, onMounted } from "vue";
 import { TodoCubit, TodoState, filters } from "../cubit";
-import { ReplayPlugin } from "@vue-cubit/replay_plugin";
-import { HydratedPlugin } from "@vue-cubit/hydrated_plugin";
+import { ReplayPlugin } from "@vue-cubit/replay-plugin";
+import { HydratedPlugin } from "@vue-cubit/hydrated-plugin";
 
 export default defineComponent({
   name: "Counter",

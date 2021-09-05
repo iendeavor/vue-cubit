@@ -1,5 +1,5 @@
 {
-  "name": "@vue-cubit/replay_plugin",
+  "name": "@vue-cubit/hydrated-plugin",
   "version": "0.1.0",
   "description": "BLoC pattern library for vue.js 3",
   "main": "src/index.ts",

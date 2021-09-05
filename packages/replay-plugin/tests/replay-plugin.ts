@@ -3,7 +3,7 @@ import { ReplayPlugin } from "../src";
 
 class CounterCubit extends Cubit<number> {}
 
-describe("replay_plugin", () => {
+describe("replay-plugin", () => {
   it("can initial plugin", () => {
     expect(() =>
       new CounterCubit(0).use(new ReplayPlugin<number>())

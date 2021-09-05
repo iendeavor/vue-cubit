@@ -15,9 +15,9 @@ export default defineComponent({
     const counterCubit = new CounterCubit();
 
     const count = ref(counterCubit.state);
-    onMounted(() => counterCubit.addListener(listener))
-    onBeforeUnmount(() => counterCubit.removeListener(listener))
-    function listener (change: Change<number>) {
+    onMounted(() => counterCubit.addListener(listener));
+    onBeforeUnmount(() => counterCubit.removeListener(listener));
+    function listener(change: Change<number>) {
       count.value = change.newState;
     }
 
