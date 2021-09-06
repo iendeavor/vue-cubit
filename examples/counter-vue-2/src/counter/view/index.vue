@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { CounterCubit } from "../cubit";
-import { useCubit } from "@vue-cubit/core";
+import { useCubit } from "@vue-cubit/hook";
 
 export default {
   name: "Counter",

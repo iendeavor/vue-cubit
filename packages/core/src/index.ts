@@ -4,4 +4,3 @@ export * from "./cubit-observer";
 export * from "./transition";
 export * from "./cubit-test";
 export * from "./cubit-plugin";
-export * from "./use-cubit";

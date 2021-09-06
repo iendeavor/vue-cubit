@@ -5,20 +5,5 @@
   "main": "src/index.ts",
   "repository": "git@github.com:iendeavor/vue-cubit.git",
   "author": "Ernest <iendeavor.github.io@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "vue-demi": "latest"
-  },
-  "devDependencies": {
-    "vue": "^3"
-  },
-  "peerDependencies": {
-    "@vue/composition-api": "^1.0.0-rc.1",
-    "vue": "^2.0.0 || >=3.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
-  }
+  "license": "MIT"
 }

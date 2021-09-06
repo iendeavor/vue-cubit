@@ -32,7 +32,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ChatCubit } from "../cubit";
-import { useCubit } from "@vue-cubit/core";
+import { useCubit } from "@vue-cubit/hook";
 
 export default defineComponent({
   name: "Chat",

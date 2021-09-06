@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useCubit } from "@vue-cubit/core";
+import { useCubit } from "@vue-cubit/hook";
 import { MarkdownCubit } from "../cubit";
 
 export default defineComponent({
