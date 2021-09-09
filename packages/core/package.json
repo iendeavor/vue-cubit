@@ -2,12 +2,17 @@
   "name": "@vue-cubit/core",
   "version": "0.1.0",
   "description": "Vue-cubit is a predictable state management library for Vue and heavily inspired by BLoC",
-  "main": "src/index.ts",
+  "main": "dist/index.cjs.prod.js",
+  "module": "dist/index.es.prod.js",
+  "unpkg": "dist/index.iife.prod.js",
+  "jsdelivr": "dist/index.iife.prod.js",
+  "types": "src/index.ts",
   "repository": "git@github.com:iendeavor/vue-cubit.git",
   "home": "https://github.com/iendeavor/vue-cubit/tree/main/packages/core",
   "author": "Ernest <iendeavor.github.io@gmail.com>",
   "license": "MIT",
   "files": [
+    "src",
     "dist"
   ]
 }

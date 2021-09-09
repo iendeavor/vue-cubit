@@ -10,7 +10,7 @@ rm.sync(resolvePackage("dist/**/*"));
 
 const packageJson = require(resolvePackage("package.json"));
 const packageName = packageJson.name;
-const mainFilePath = packageJson.main;
+const mainFilePath = "src/index.ts";
 const pascalCasePackageName = pascalCase(packageName);
 const input = resolvePackage(mainFilePath);
 const output = "index";
