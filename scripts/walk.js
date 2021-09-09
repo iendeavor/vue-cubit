@@ -7,11 +7,15 @@ const ignoredPaths = [/node_modules/, /dist/];
 main();
 
 function main() {
-  const args = process.argv.slice(2);
+  const relpath = process.argv[2];
+  console.assert(relpath.trim() !== "");
+
+  const args = process.argv.slice(3);
   const command = args.join(" ");
   console.assert(command.trim() !== "");
 
-  const rootDir = path.resolve(__dirname, "..", "examples");
+  const rootDir = path.resolve(__dirname, "..", relpath);
+
   const exampleDirectories = collectExampleDirectories(rootDir);
   exampleDirectories.forEach((dir) => execCommand(dir, command));
 }
