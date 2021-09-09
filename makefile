@@ -14,6 +14,9 @@ clean: $(arg1)
 	rm -rf ./packages/$(path)/node_modules
 	rm -rf ./packages/$(path)/dist
 
+release:
+	yarn conventional-changelog -p angular -i CHANGELOG.md -s
+
 build-all:
 	node scripts/walk packages yarn rollup -c ../../rollup.config.js
 
