@@ -618,6 +618,28 @@
   resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.6.0.tgz#e5558e20c20e9098cd5bd65b9901fdcd2c354983"
   integrity sha512-n3i8htn8pTg9M+kM3cnEfsPZx/6ngInlTroth6fA1LQTJq5aTVQ8ggaE5pPoAy9vCgHPtcaXMzwpldhqRAkebQ==
 
+"@vue-cubit/core@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@vue-cubit/core/-/core-0.1.1.tgz#4fc07c6a81b85205d0ba8b565e87b1dc38e0a757"
+  integrity sha512-ww0YuuZeMiHf6ZQHYrwJGWMyWQh7yXdyjhBmioovU1JC9mNifiuNd2nZe2OzkVzYjbVdJbROzvyvaid8ILh6Ug==
+
+"@vue-cubit/hook@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@vue-cubit/hook/-/hook-0.1.1.tgz#e6e8d7b3616b82e2d4c46b0e054f38e70ceb6474"
+  integrity sha512-TOUbIYZDJPbT4AxlgWQv14Nhe5FgRx9iXLSIO/l7oRC+lolIdCbAEBwBphXF4zuhmos4n3XfF23pOdlli8IPaQ==
+  dependencies:
+    vue-demi latest
+
+"@vue-cubit/hydrated-plugin@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@vue-cubit/hydrated-plugin/-/hydrated-plugin-0.1.1.tgz#c199fb29848a4aa6b7eb92bd26a6205a1ea153f1"
+  integrity sha512-8HzhZroiV9+FRLfj5GRoQ0o5bMgmVz2fpOukniijQutN5nWAcwvoMUKv5STpx0VOjAGS11ShKBWKsMdtP52BhA==
+
+"@vue-cubit/replay-plugin@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@vue-cubit/replay-plugin/-/replay-plugin-0.1.1.tgz#94c87803744dc81fd8fc37d79dc6c410cebc534c"
+  integrity sha512-My5FJkBhL3Faht2TCmyd0r1gg6BU4NgRPJRzzvWfZb8aDXp+cgB+pbxa7jhhDjeeVEXqVHWJKUV5/iJHl7jBhg==
+
 "@vue/compiler-core@3.2.8":
   version "3.2.8"
   resolved "https://registry.yarnpkg.com/@vue/compiler-core/-/compiler-core-3.2.8.tgz#13b2386bdb03455c9f6c6af2f3468561a5ae5b1d"
@@ -3741,6 +3763,11 @@ vite@^2.4.2:
     rollup "^2.38.5"
   optionalDependencies:
     fsevents "~2.3.2"
+
+vue-demi@latest:
+  version "0.11.4"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.11.4.tgz#6101992fe4724cf5634018a16e953f3052e94e2a"
+  integrity sha512-/3xFwzSykLW2HiiLie43a+FFgNOcokbBJ+fzvFXd0r2T8MYohqvphUyDQ8lbAwzQ3Dlcrb1c9ykifGkhSIAk6A==
 
 vue-tsc@^0.0.24:
   version "0.0.24"
