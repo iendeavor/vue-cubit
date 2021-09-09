@@ -1,5 +1,7 @@
 import { DeepReadonly } from "ts-essentials";
-import { CubitObserver, Change, CubitPlugin } from ".";
+import { CubitObserver } from "./cubit-observer";
+import { Change } from "./transition";
+import { CubitPlugin } from "./cubit-plugin";
 import { proxy } from "./utils";
 
 export abstract class CubitBase<State> {

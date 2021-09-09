@@ -1,4 +1,7 @@
-import { CubitBase, Cubit, CubitObserver, Change } from ".";
+import { CubitBase } from "./cubit-base";
+import { Cubit } from "./cubit";
+import { CubitObserver } from "./cubit-observer";
+import { Change } from "./transition";
 
 class Observer extends CubitObserver {
   onChanged<S>(_: CubitBase<S>, change: Change<S>) {
