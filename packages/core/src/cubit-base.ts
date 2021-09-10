@@ -7,19 +7,27 @@ import { proxy } from "./utils";
 export abstract class CubitBase<State> {
   static observer: CubitObserver | null = null;
 
-  private state: Ref<State>;
+  private stateRef: Ref<State>;
+
+  get state(): State {
+    return this.stateRef.value;
+  }
+
+  set state(state: State) {
+    this.emit(state);
+  }
 
   private listeners: Set<Listener<Change<State>>> = new Set();
 
   constructor(initialState: State) {
-    this.state = ref(initialState) as Ref<State>;
+    this.stateRef = ref(initialState) as Ref<State>;
     CubitBase.observer?.onCreated(this);
   }
 
   emit(state: State) {
-    const oldState = this.state.value;
-    this.state.value = state;
-    this.onChanged(new Change(oldState, this.state.value));
+    const oldState = this.stateRef.value;
+    this.stateRef.value = state;
+    this.onChanged(new Change(oldState, this.stateRef.value));
   }
 
   onChanged(change: Change<State>) {
