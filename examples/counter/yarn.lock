@@ -704,10 +704,12 @@
     vscode-nls "^5.0.0"
     vscode-uri "^2.1.2"
 
-"@vue-cubit/core@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@vue-cubit/core/-/core-0.1.1.tgz#4fc07c6a81b85205d0ba8b565e87b1dc38e0a757"
-  integrity sha512-ww0YuuZeMiHf6ZQHYrwJGWMyWQh7yXdyjhBmioovU1JC9mNifiuNd2nZe2OzkVzYjbVdJbROzvyvaid8ILh6Ug==
+"@vue-cubit/core@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@vue-cubit/core/-/core-0.1.5.tgz#56b7f1a09ae37bf12ee036435cea90d2ea616a0d"
+  integrity sha512-a2bNTNfYq1B1iN9Hh/u8OmoRrVe7NVSBfFQU3Yc5eikZ8DQvuTECEQhmcaROyVhT216eD+MEAkLbbo3cwL9pJg==
+  dependencies:
+    vue-demi latest
 
 "@vue/compiler-core@3.2.11":
   version "3.2.11"
@@ -4126,6 +4128,11 @@ vscode-vue-languageservice@^0.27.0:
     vscode-languageserver-textdocument "^1.0.1"
     vscode-pug-languageservice "^0.27.14"
     vscode-typescript-languageservice "^0.27.17"
+
+vue-demi@latest:
+  version "0.11.4"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.11.4.tgz#6101992fe4724cf5634018a16e953f3052e94e2a"
+  integrity sha512-/3xFwzSykLW2HiiLie43a+FFgNOcokbBJ+fzvFXd0r2T8MYohqvphUyDQ8lbAwzQ3Dlcrb1c9ykifGkhSIAk6A==
 
 vue-tsc@^0.3.0:
   version "0.3.0"

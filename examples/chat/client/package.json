@@ -8,7 +8,7 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "@vue-cubit/core": "^0.1.1",
+    "@vue-cubit/core": "^0.1.5",
     "vue": "^3.2"
   },
   "devDependencies": {

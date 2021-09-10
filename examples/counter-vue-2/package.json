@@ -8,7 +8,7 @@
     "jest": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@vue-cubit/core": "^0.1.1",
+    "@vue-cubit/core": "^0.1.5",
     "@vue/composition-api": "^1.1.4",
     "vue": "^2.6.14",
     "vue-class-component": "^7.2.3",
@@ -20,7 +20,6 @@
     "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/test-utils": "^1.0.3",
-    "eslint": "^6.7.2",
     "typescript": "4.2",
     "vue-template-compiler": "^2.6.14"
   }

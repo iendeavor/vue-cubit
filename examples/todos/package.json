@@ -8,7 +8,7 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "@vue-cubit/core": "^0.1.1",
+    "@vue-cubit/core": "^0.1.5",
     "@vue-cubit/hydrated-plugin": "^0.1.1",
     "@vue-cubit/replay-plugin": "^0.1.1",
     "todomvc-app-css": "^2.4.1",

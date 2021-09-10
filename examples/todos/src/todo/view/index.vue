@@ -10,8 +10,7 @@
       autofocus
       autocomplete="off"
       placeholder="What needs to be done?"
-      :value="todoCubit.state.newTodoTitle"
-      @input="handleUpdateNewTodoTitle"
+      v-model="todoCubit.state.newTodoTitle"
       @keyup.enter="todoCubit.addTodo"
     />
   </header>
@@ -118,11 +117,6 @@ export default defineComponent({
         })
       )
       .use(new ReplayPlugin<TodoState>());
-    const handleUpdateNewTodoTitle = (event: Event) => {
-      const target = event.target;
-      if (target instanceof HTMLInputElement)
-        todoCubit.updateNewTodoTitle(target.value);
-    };
 
     const allDone = computed<boolean>({
       set() {
@@ -165,7 +159,6 @@ export default defineComponent({
 
     return {
       todoCubit,
-      handleUpdateNewTodoTitle,
       allDone,
       handleUpdateEditingTodoTitle,
     };
