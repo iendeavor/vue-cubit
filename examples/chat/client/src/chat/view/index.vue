@@ -32,12 +32,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ChatCubit } from "../cubit";
-import { useCubit } from "@vue-cubit/hook";
 
 export default defineComponent({
   name: "Chat",
   setup: () => {
-    const chatCubit = useCubit(() => new ChatCubit());
+    const chatCubit = new ChatCubit();
 
     const handleInput = (event: Event) => {
       const target = event.target;

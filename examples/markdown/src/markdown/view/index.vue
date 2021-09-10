@@ -7,13 +7,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useCubit } from "@vue-cubit/hook";
 import { MarkdownCubit } from "../cubit";
 
 export default defineComponent({
   name: "Markdown",
   setup: () => {
-    const cubit = useCubit(() => new MarkdownCubit());
+    const cubit = new MarkdownCubit();
 
     const handleInput = (event: Event) => {
       const target = event.target;

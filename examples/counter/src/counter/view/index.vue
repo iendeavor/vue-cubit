@@ -7,12 +7,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { CounterCubit } from "../cubit";
-import { useCubit } from "@vue-cubit/hook";
 
 export default defineComponent({
   name: "Counter",
   setup: () => {
-    const counterCubit = useCubit(() => new CounterCubit());
+    const counterCubit = new CounterCubit();
 
     return { counterCubit };
   },

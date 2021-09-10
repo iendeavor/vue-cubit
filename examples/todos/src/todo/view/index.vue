@@ -103,7 +103,6 @@
 
 <script lang="ts">
 import { computed, defineComponent, onBeforeUnmount, onMounted } from "vue";
-import { useCubit } from "@vue-cubit/hook";
 import { ReplayPlugin } from "@vue-cubit/replay-plugin";
 import { HydratedPlugin } from "@vue-cubit/hydrated-plugin";
 import { TodoCubit, TodoState, filters } from "../cubit";
@@ -111,17 +110,14 @@ import { TodoCubit, TodoState, filters } from "../cubit";
 export default defineComponent({
   name: "Counter",
   setup: () => {
-    const todoCubit = useCubit(() =>
-      new TodoCubit()
-        .use(
-          new HydratedPlugin("todoCubit", localStorage, {
-            fromJson: TodoState.fromJson,
-            toJson: TodoState.toJson,
-          })
-        )
-        .use(new ReplayPlugin<TodoState>())
-    );
-
+    const todoCubit = new TodoCubit()
+      .use(
+        new HydratedPlugin("todoCubit", localStorage, {
+          fromJson: TodoState.fromJson,
+          toJson: TodoState.toJson,
+        })
+      )
+      .use(new ReplayPlugin<TodoState>());
     const handleUpdateNewTodoTitle = (event: Event) => {
       const target = event.target;
       if (target instanceof HTMLInputElement)
