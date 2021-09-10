@@ -18,7 +18,7 @@ jobs:
 
       - run: yarn prettier --check .
 
-  test:
+  build-and-test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -33,9 +33,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: make install-all
+      - run: make install
+
+      - run: make install-examples
+
+      - run: yarn prettier --check .
+
+      - run: make build-all
 
       - run: make test-all
+
+      - run: make test-examples
 
       - name: Upload coverage to Coveralls
         uses: coverallsapp/github-action@v1.1.1

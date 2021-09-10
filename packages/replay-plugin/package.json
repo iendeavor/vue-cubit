@@ -16,7 +16,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@vue-cubit/core": "^0"
+    "@vue-cubit/core": "file:../core"
   },
   "peerDependencies": {
     "@vue-cubit/core": "^0"
