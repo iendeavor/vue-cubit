@@ -29,7 +29,6 @@
     "rollup": "^2.56.3",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
-    "ts-essentials": "^8.1.0",
     "ts-jest": "^27",
     "typescript": "^4"
   }

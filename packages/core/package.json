@@ -14,5 +14,22 @@
   "files": [
     "src",
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "vue-demi": "latest"
+  },
+  "devDependencies": {
+    "@vue-cubit/core": "^0",
+    "vue": "^3.2"
+  },
+  "peerDependencies": {
+    "@vue-cubit/core": "^0",
+    "@vue/composition-api": "^1.1.5",
+    "vue": "^2.0.0 || ^3.2"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  }
 }
