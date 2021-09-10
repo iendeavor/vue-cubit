@@ -1,6 +1,6 @@
 {
   "name": "@vue-cubit/core",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Vue-cubit is a predictable state management library for Vue and heavily inspired by BLoC",
   "main": "dist/index.cjs.prod.js",
   "module": "dist/index.es.prod.js",
