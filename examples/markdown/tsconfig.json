@@ -8,10 +8,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["ES2019", "dom"],
-    "types": ["jest", "node"],
-    "paths": {
-      "@vue-cubit/*": ["../../packages/*"]
-    }
+    "types": ["jest", "node"]
   },
   "exclude": ["node_modules"]
 }

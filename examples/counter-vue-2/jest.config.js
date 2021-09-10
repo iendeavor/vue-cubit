@@ -6,7 +6,4 @@ module.exports = {
   },
   testRegex: "tests/.*.(jsx?|tsx?)$",
   moduleFileExtensions: ["ts", "js"],
-  moduleNameMapper: {
-    "@vue-cubit/(.*)": ["../../packages/$1"],
-  },
 };
