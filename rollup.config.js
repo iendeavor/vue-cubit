@@ -22,7 +22,7 @@ const configs = [];
 formats.forEach((format) => {
   const config = {
     input,
-    external: ["vue", "@vue-cubit/core", "@vue/composition-api"],
+    external: ["vue", "vue-demi", "@vue-cubit/core", "@vue/composition-api"],
     plugins: [
       ts(),
       resolve(),
@@ -34,6 +34,9 @@ formats.forEach((format) => {
     output: {
       globals: {
         vue: "Vue",
+        "vue-demi": "VueDemi",
+        "@vue-cubit/core": "VueCubitCore",
+        "@vue/composition-api": "VueCompositionAPI",
       },
       format,
       name: pascalCasePackageName,
