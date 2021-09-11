@@ -16,14 +16,11 @@ describe("MarkdownCubit", () => {
   cubitTest<MarkdownCubit, MarkdownState>("marked", {
     build: () => markdownCubit,
     act: (cubit) => {
-      cubit.changeMarkdown("**bold**");
+      cubit.state.markdown = "**bold**";
     },
-    wait: 300,
-    expect: () => [
-      new MarkdownState({
-        markdown: "**bold**",
-        html: "<p><strong>bold</strong></p>",
-      }),
-    ],
+    expect: () => [],
+    verify: (cubit) => {
+      expect(cubit.state.html).toBe("<p><strong>bold</strong></p>");
+    },
   });
 });

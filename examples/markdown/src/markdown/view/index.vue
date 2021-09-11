@@ -1,6 +1,6 @@
 <template>
   <div id="editor">
-    <textarea :value="cubit.state.markdown" @input="handleInput"></textarea>
+    <textarea v-model="cubit.state.markdown"></textarea>
     <div v-html="cubit.state.html"></div>
   </div>
 </template>
@@ -14,13 +14,7 @@ export default defineComponent({
   setup: () => {
     const cubit = new MarkdownCubit();
 
-    const handleInput = (event: Event) => {
-      const target = event.target;
-      if (target instanceof HTMLTextAreaElement)
-        cubit.changeMarkdown(target.value);
-    };
-
-    return { cubit, handleInput };
+    return { cubit };
   },
 });
 </script>
