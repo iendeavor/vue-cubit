@@ -5,7 +5,7 @@ export class CounterCubit extends Cubit<number> {
     super(0);
   }
 
-  increment() {
+  increment = () => {
     this.emit(this.state + 1);
-  }
+  };
 }
