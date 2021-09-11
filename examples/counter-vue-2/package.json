@@ -8,8 +8,8 @@
     "jest": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@vue-cubit/core": "^0.1.5",
-    "@vue/composition-api": "^1.1.4",
+    "@vue-cubit/core": "^0.1.7",
+    "@vue/composition-api": "^1.1.5",
     "vue": "^2.6.14",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2"

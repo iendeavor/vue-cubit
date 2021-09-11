@@ -704,10 +704,10 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@vue-cubit/core@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@vue-cubit/core/-/core-0.1.5.tgz#56b7f1a09ae37bf12ee036435cea90d2ea616a0d"
-  integrity sha512-a2bNTNfYq1B1iN9Hh/u8OmoRrVe7NVSBfFQU3Yc5eikZ8DQvuTECEQhmcaROyVhT216eD+MEAkLbbo3cwL9pJg==
+"@vue-cubit/core@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@vue-cubit/core/-/core-0.1.7.tgz#12c0fc848ec7be734c05b8a6d502dba861f96939"
+  integrity sha512-6B2L8s5YIedChqjXlA6m+OwLRCxO2JvUJHWwdBubEyfOZizesM0WQ3vENnRCCjm0JFlia/40oCYmvE5JWlEVgA==
   dependencies:
     vue-demi latest
 
@@ -864,10 +864,10 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/composition-api@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.1.4.tgz#b4cd566e575350b86c22fa02632e4a356ac2e26e"
-  integrity sha512-f618a79X0VepQUoZofaAYzaherBuzfIIYah4gQPcwmXgN3oeuGdhO7DY2s3Rjcw7r9yTEh5sQIowbNWy6INGjg==
+"@vue/composition-api@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.1.5.tgz#dec72423d2a41a49ddae87d107a6694b68003c33"
+  integrity sha512-OBi35vuM2ZJHENCbYshvikSHZ2qoIl63TBUpszZkmdlmgWLi7yi0tKmesXfP2TsSuNVaKqvxNhHQ9BsEh5IwAg==
   dependencies:
     tslib "^2.3.0"
 
