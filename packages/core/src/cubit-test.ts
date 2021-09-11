@@ -18,8 +18,8 @@ export function cubitTest<C extends Cubit<S>, S>(
   options: {
     setUp?(): MaybePromise<void>;
     build(): C;
-    act?(cubit: C): void;
     seed?(): S;
+    act?(cubit: C): void;
     skip?: number;
     wait?: number;
     expect(): S[];
@@ -33,7 +33,9 @@ export function cubitTest<C extends Cubit<S>, S>(
     CubitBase.observer = new Observer();
 
     const cubit = options.build();
+
     if (options.seed) cubit.emit(options.seed());
+
     actualStateStack.length = 0;
     options.act?.(cubit);
 
