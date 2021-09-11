@@ -10,17 +10,17 @@ describe("replay-plugin", () => {
     ).not.toThrow();
   });
 
-  // it("can not undo", () => {
-  //   const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
+  it("can not undo", () => {
+    const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
 
-  //   expect(cubit.canUndo).toBe(false);
-  // });
+    expect(cubit.canUndo).toBe(false);
+  });
 
-  // it("can not redo", () => {
-  //   const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
+  it("can not redo", () => {
+    const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
 
-  //   expect(cubit.canRedo).toBe(false);
-  // });
+    expect(cubit.canRedo).toBe(false);
+  });
 
   it("correctly restore state after undo", () => {
     const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
@@ -41,39 +41,39 @@ describe("replay-plugin", () => {
     expect(cubit.state).toBe(1);
   });
 
-  // it("can undo after emit", () => {
-  //   const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
+  it("can undo after emit", () => {
+    const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
 
-  //   cubit.emit(1);
+    cubit.emit(1);
 
-  //   expect(cubit.canUndo).toBe(true);
-  // });
+    expect(cubit.canUndo).toBe(true);
+  });
 
-  // it("can redo after undo", () => {
-  //   const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
-  //   cubit.emit(1);
+  it("can redo after undo", () => {
+    const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
+    cubit.emit(1);
 
-  //   cubit.undo();
+    cubit.undo();
 
-  //   expect(cubit.canRedo).toBe(true);
-  // });
+    expect(cubit.canRedo).toBe(true);
+  });
 
-  // it("cannot undo when there is no history", () => {
-  //   const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
-  //   cubit.emit(1);
+  it("cannot undo when there is no history", () => {
+    const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
+    cubit.emit(1);
 
-  //   cubit.undo();
+    cubit.undo();
 
-  //   expect(cubit.canUndo).toBe(false);
-  // });
+    expect(cubit.canUndo).toBe(false);
+  });
 
-  // it("cannot redo after emit new state", () => {
-  //   const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
-  //   cubit.emit(1);
-  //   cubit.undo();
+  it("cannot redo after emit new state", () => {
+    const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
+    cubit.emit(1);
+    cubit.undo();
 
-  //   cubit.emit(2);
+    cubit.emit(2);
 
-  //   expect(cubit.canRedo).toBe(false);
-  // });
+    expect(cubit.canRedo).toBe(false);
+  });
 });

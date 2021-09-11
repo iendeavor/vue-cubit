@@ -71,8 +71,8 @@ yarn add @vue-cubit/replay-plugin
   <button type="button" @click="counterCubit.increment">
     count is: {{ counterCubit.state }}
   </button>
-+ <button @click="counterCubit.undo">Undo</button>
-+ <button @click="counterCubit.redo">Redo</button>
++ <button :disabled="counterCubit.canUndo === false" @click="counterCubit.undo">Undo</button>
++ <button :disabled="counterCubit.canRedo === false" @click="counterCubit.redo">Redo</button>
 </template>
 
 <script lang="ts">
@@ -84,7 +84,7 @@ yarn add @vue-cubit/replay-plugin
     name: "Counter",
     setup: () => {
 -     const counterCubit = new CounterCubit();
-+     const counterCubit = new CounterCubit().use(new ReplayPlugin());
++     const counterCubit = new CounterCubit().use(new ReplayPlugin<number>());
 
       return { counterCubit };
     },
@@ -117,7 +117,7 @@ yarn add @vue-cubit/hydrated-plugin
     setup: () => {
 -     const counterCubit = new CounterCubit();
 +     const counterCubit = new CounterCubit().use(
-+       new HydratedPlugin("counterCubit", localStorage, {
++       new HydratedPlugin<number>("counterCubit", localStorage, {
 +         fromJson: JSON.parse,
 +         toJson: JSON.stringify,
 +       })

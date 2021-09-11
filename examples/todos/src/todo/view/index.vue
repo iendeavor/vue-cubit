@@ -2,8 +2,20 @@
   <header class="header">
     <h1>todos</h1>
     <div class="replay">
-      <button class="undo" @click="todoCubit.undo">Undo</button>
-      <button class="redo" @click="todoCubit.redo">Redo</button>
+      <button
+        :disabled="todoCubit.canUndo === false"
+        class="undo"
+        @click="todoCubit.undo"
+      >
+        Undo
+      </button>
+      <button
+        :disabled="todoCubit.canRedo === false"
+        class="redo"
+        @click="todoCubit.redo"
+      >
+        Redo
+      </button>
     </div>
     <input
       class="new-todo"

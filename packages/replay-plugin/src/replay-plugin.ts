@@ -37,6 +37,13 @@ export class ReplayPlugin<State> implements CubitPlugin<State> {
     this.changeStack.limit = limit;
   }
 
+  get canRedo(): boolean {
+    return this.changeStack.canRedo;
+  }
+  get canUndo(): boolean {
+    return this.changeStack.canUndo;
+  }
+
   undo(): void {
     this.changeStack.undo();
   }
