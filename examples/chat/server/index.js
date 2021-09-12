@@ -19,10 +19,14 @@ server.on("upgrade", function (request, socket, head) {
 
 wss.on("connection", function (ws) {
   console.log("connected");
+  ws.send(JSON.stringify("Hello!"));
 
   ws.on("message", function (message) {
     console.log(`Received message ${message.toString()}`);
     ws.send(JSON.stringify(message.toString()));
+
+    // Simulate reply
+    ws.send(JSON.stringify("Processing ..."));
   });
 
   ws.on("close", function () {

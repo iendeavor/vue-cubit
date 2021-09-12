@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeUnmount } from "vue";
+import { defineComponent, onMounted, onBeforeUnmount } from "vue";
 import { ChatCubit } from "../cubit";
 
 export default defineComponent({
@@ -42,6 +42,10 @@ export default defineComponent({
       const target = event.target;
       if (target instanceof HTMLInputElement) chatCubit.type(target.value);
     };
+
+    onMounted(() => {
+      chatCubit.open();
+    });
 
     onBeforeUnmount(() => {
       chatCubit.close();
