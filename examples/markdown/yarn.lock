@@ -714,10 +714,10 @@
     vscode-nls "^5.0.0"
     vscode-uri "^2.1.2"
 
-"@vue-cubit/core@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@vue-cubit/core/-/core-0.1.7.tgz#12c0fc848ec7be734c05b8a6d502dba861f96939"
-  integrity sha512-6B2L8s5YIedChqjXlA6m+OwLRCxO2JvUJHWwdBubEyfOZizesM0WQ3vENnRCCjm0JFlia/40oCYmvE5JWlEVgA==
+"@vue-cubit/core@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@vue-cubit/core/-/core-0.1.8.tgz#ed36a4a609aef45aa7ee40d0d93b365ee98e6a44"
+  integrity sha512-U+aPK354lhBJ1tR7++Vk3ruPH+9/B6gfa+uhjYuwunRYqTtZMDTORHGae6oiWtc+jpdVHMYEJ6EdPkdzTnjFMA==
   dependencies:
     vue-demi latest
 
