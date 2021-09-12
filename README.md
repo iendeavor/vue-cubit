@@ -13,7 +13,7 @@ yarn add @vue-cubit/core
 For vue@2 + @vue/composition-api
 
 ```sh
-yarn add @vue/composition-api @vue/composition-api
+yarn add @vue-cubit/core @vue/composition-api
 ```
 
 ```typescript
