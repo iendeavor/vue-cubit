@@ -56,6 +56,36 @@ class CounterCubit extends Cubit<number> {
 </script>
 ```
 
+## Testing
+
+```typescript
+// ./cubit.spec.ts
+
+import { CounterCubit } from "./cubit";
+import { cubitTest } from "@vue-cubit/core";
+
+describe("CounterCubit", () => {
+  let todoCubit: CounterCubit;
+
+  beforeEach(() => {
+    todoCubit = new CounterCubit();
+  });
+
+  cubitTest<CounterCubit, number>("emits [] when nothing added", {
+    build: () => todoCubit,
+    expect: () => [],
+  });
+
+  cubitTest<CounterCubit, number>("emits [1] when invoke increment", {
+    build: () => todoCubit,
+    act: (cubit) => {
+      cubit.increment();
+    },
+    expect: () => [1],
+  });
+});
+```
+
 ## Plugins
 
 ### Replay Plugin
