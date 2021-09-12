@@ -7,4 +7,5 @@ module.exports = {
   },
   testRegex: "tests/.*.(jsx?|tsx?)$",
   moduleFileExtensions: ["ts", "js"],
+  coveragePathIgnorePatterns: ["node_modules", "dist"],
 };
