@@ -716,10 +716,10 @@
   resolved "https://registry.yarnpkg.com/@vue-cubit/hydrated-plugin/-/hydrated-plugin-0.1.1.tgz#c199fb29848a4aa6b7eb92bd26a6205a1ea153f1"
   integrity sha512-8HzhZroiV9+FRLfj5GRoQ0o5bMgmVz2fpOukniijQutN5nWAcwvoMUKv5STpx0VOjAGS11ShKBWKsMdtP52BhA==
 
-"@vue-cubit/replay-plugin@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@vue-cubit/replay-plugin/-/replay-plugin-0.1.1.tgz#94c87803744dc81fd8fc37d79dc6c410cebc534c"
-  integrity sha512-My5FJkBhL3Faht2TCmyd0r1gg6BU4NgRPJRzzvWfZb8aDXp+cgB+pbxa7jhhDjeeVEXqVHWJKUV5/iJHl7jBhg==
+"@vue-cubit/replay-plugin@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@vue-cubit/replay-plugin/-/replay-plugin-0.1.2.tgz#c464f411676773af9c52e40f1b042a60c7c99684"
+  integrity sha512-IqE5nNpa6eViPVtLcTAN4kcWZKrFfZ6r2sIrwQorVMEclt8HiWPQjDn4gy87Xi5ZRdHK7IjBK1DiuC5rIlR6xA==
 
 "@vue/compiler-core@3.2.11":
   version "3.2.11"

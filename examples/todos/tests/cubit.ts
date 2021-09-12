@@ -299,7 +299,7 @@ describe("TodoCubit", () => {
       }),
     expect: () => [],
     verify: (cubit) => {
-      expect(cubit.state.remainingText).toBe("1 item left");
+      expect(cubit.state.remainingText).toBe(" item left");
     },
   });
 
@@ -316,7 +316,7 @@ describe("TodoCubit", () => {
         }),
       expect: () => [],
       verify: (cubit) => {
-        expect(cubit.state.remainingText).toBe("2 items left");
+        expect(cubit.state.remainingText).toBe(" items left");
       },
     }
   );
