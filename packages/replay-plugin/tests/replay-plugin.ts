@@ -22,6 +22,14 @@ describe("replay-plugin", () => {
     expect(cubit.canRedo).toBe(false);
   });
 
+  it("can undo after emit", () => {
+    const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
+
+    cubit.emit(1);
+
+    expect(cubit.canUndo).toBe(true);
+  });
+
   it("correctly restore state after undo", () => {
     const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
     cubit.emit(1);
@@ -29,6 +37,15 @@ describe("replay-plugin", () => {
     cubit.undo();
 
     expect(cubit.state).toBe(0);
+  });
+
+  it("can redo after undo", () => {
+    const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
+    cubit.emit(1);
+
+    cubit.undo();
+
+    expect(cubit.canRedo).toBe(true);
   });
 
   it("correctly restore state after redo", () => {
@@ -39,23 +56,6 @@ describe("replay-plugin", () => {
     cubit.redo();
 
     expect(cubit.state).toBe(1);
-  });
-
-  it("can undo after emit", () => {
-    const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
-
-    cubit.emit(1);
-
-    expect(cubit.canUndo).toBe(true);
-  });
-
-  it("can redo after undo", () => {
-    const cubit = new CounterCubit(0).use(new ReplayPlugin<number>());
-    cubit.emit(1);
-
-    cubit.undo();
-
-    expect(cubit.canRedo).toBe(true);
   });
 
   it("cannot undo when there is no history", () => {

@@ -17,7 +17,7 @@ class LocalStorageMock implements Storage {
   }
 
   setItem(key: string, value: string) {
-    this.store[key] = String(value);
+    this.store[key] = value;
   }
 
   removeItem(key: string) {
@@ -43,32 +43,40 @@ class CounterCubit extends Cubit<number> {
 }
 
 describe("hydrated-plugin", () => {
+  let spyGetItem: jest.SpyInstance;
+  let spySetItem: jest.SpyInstance;
+
+  beforeEach(() => {
+    spyGetItem = jest.spyOn(global.localStorage, "getItem");
+    spyGetItem.mockReturnValue(JSON.stringify(42));
+
+    spySetItem = jest.spyOn(global.localStorage, "setItem");
+  });
+
+  afterEach(() => {
+    spyGetItem.mockReset();
+    spyGetItem.mockRestore();
+
+    spySetItem.mockReset();
+    spySetItem.mockRestore();
+  });
+
   it("can initial plugin", () => {
     expect(
       () => new HydratedPlugin<number>("counter", global.localStorage)
     ).not.toThrow();
   });
 
-  it("get item from storage after installation", () => {
-    const spyGetItem = jest.spyOn(global.localStorage, "getItem");
-    spyGetItem.mockReturnValue(JSON.stringify(42));
-
+  it("should get item from storage after installation", () => {
     const cubit = new CounterCubit().use(
       new HydratedPlugin<number>("counter", global.localStorage)
     );
 
     expect(spyGetItem).toBeCalledTimes(1);
     expect(cubit.state).toBe(42);
-
-    spyGetItem.mockReset();
-    spyGetItem.mockRestore();
   });
 
-  it("set item to storage after emit", () => {
-    const spyGetItem = jest.spyOn(global.localStorage, "getItem");
-    spyGetItem.mockReturnValue(JSON.stringify(42));
-    const spySetItem = jest.spyOn(global.localStorage, "setItem");
-
+  it("should set item to storage after emit", () => {
     const cubit = new CounterCubit().use(
       new HydratedPlugin<number>("counter", global.localStorage)
     );
@@ -76,9 +84,6 @@ describe("hydrated-plugin", () => {
     cubit.increment();
 
     expect(spySetItem).toBeCalledTimes(1);
-    expect(cubit.state).toBe(43);
-
-    spyGetItem.mockReset();
-    spyGetItem.mockRestore();
+    expect(spySetItem).toBeCalledWith("counter", "43");
   });
 });
