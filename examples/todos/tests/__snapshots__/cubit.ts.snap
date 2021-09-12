@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoCubit can convert Todo from/to JSON 1`] = `
+Todo {
+  "completed": false,
+  "id": 0,
+  "title": "foo",
+}
+`;
+
+exports[`TodoCubit can convert TodoState from/to JSON 1`] = `
+TodoState {
+  "editedTodo": Object {
+    "completed": false,
+    "id": 0,
+    "title": "baz",
+  },
+  "newTodoTitle": "bar",
+  "todos": Array [
+    Todo {
+      "completed": false,
+      "id": 0,
+      "title": "foo",
+    },
+  ],
+  "visibility": "active",
+}
+`;

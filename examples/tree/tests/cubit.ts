@@ -25,6 +25,9 @@ describe("TreeItemCubit", () => {
         open: true,
       }),
     ],
+    verify: (cubit) => {
+      expect(cubit.state.isFolder).toBe(true);
+    },
   });
 
   cubitTest<TreeItemCubit, TreeItemState>("open directory", {

@@ -21,11 +21,13 @@ export class TodoCubit extends Cubit<TodoState> {
     this.emit(
       this.state.copyWith({
         newTodoTitle: "",
-        todos: this.state.todos.concat({
-          id: this.state.todos.length,
-          title: newTitle,
-          completed: false,
-        }),
+        todos: this.state.todos.concat(
+          new Todo({
+            id: this.state.todos.length,
+            title: newTitle,
+            completed: false,
+          })
+        ),
       })
     );
   }
@@ -43,11 +45,11 @@ export class TodoCubit extends Cubit<TodoState> {
 
     this.emit(
       this.state.copyWith({
-        editedTodo: {
+        editedTodo: new Todo({
           id: this.state.editedTodo.id,
           title: title,
           completed: this.state.editedTodo.completed,
-        },
+        }),
       })
     );
   }
@@ -59,11 +61,11 @@ export class TodoCubit extends Cubit<TodoState> {
       (todo) => todo.id === this.state.editedTodo!.id
     )!;
 
-    const editedTodo = {
+    const editedTodo = new Todo({
       id: this.state.editedTodo.id,
       title: this.state.editedTodo.title.trim() || originalTodo.title,
       completed: this.state.editedTodo.completed,
-    };
+    });
 
     this.emit(
       this.state.copyWith({
@@ -91,11 +93,11 @@ export class TodoCubit extends Cubit<TodoState> {
       this.state.copyWith({
         todos: this.state.todos.reduce((todos, todo) => {
           if (todo.id === id) {
-            todo = {
+            todo = new Todo({
               id: todo.id,
               title: todo.title,
               completed: !todo.completed,
-            };
+            });
           }
           return todos.concat(todo);
         }, [] as Todo[]),
@@ -106,10 +108,11 @@ export class TodoCubit extends Cubit<TodoState> {
   markAllTodosCompleted() {
     this.emit(
       this.state.copyWith({
-        todos: this.state.todos.map((todo) => ({
-          ...todo,
-          completed: true,
-        })),
+        todos: this.state.todos.map((todo) =>
+          todo.copyWith({
+            completed: true,
+          })
+        ),
       })
     );
   }
@@ -117,10 +120,11 @@ export class TodoCubit extends Cubit<TodoState> {
   markAllTodosActive() {
     this.emit(
       this.state.copyWith({
-        todos: this.state.todos.map((todo) => ({
-          ...todo,
-          completed: false,
-        })),
+        todos: this.state.todos.map((todo) =>
+          todo.copyWith({
+            completed: false,
+          })
+        ),
       })
     );
   }

@@ -1,4 +1,4 @@
-import { TodoCubit, TodoState } from "../src/todo/cubit";
+import { Todo, TodoCubit, TodoState } from "../src/todo/cubit";
 import { cubitTest } from "@vue-cubit/core";
 
 describe("TodoCubit", () => {
@@ -6,6 +6,46 @@ describe("TodoCubit", () => {
 
   beforeEach(() => {
     todoCubit = new TodoCubit();
+  });
+
+  it("can convert Todo from/to JSON", () => {
+    expect(
+      typeof Todo.toJson(
+        new Todo({ id: 0, title: "foo", completed: false })
+      ) === "string"
+    ).toBe(true);
+
+    expect(
+      Todo.fromJson(
+        Todo.toJson(new Todo({ id: 0, title: "foo", completed: false }))
+      )
+    ).toMatchSnapshot();
+  });
+
+  it("can convert TodoState from/to JSON", () => {
+    expect(
+      typeof TodoState.toJson(
+        new TodoState({
+          todos: [new Todo({ id: 0, title: "foo", completed: false })],
+          newTodoTitle: "bar",
+          editedTodo: new Todo({ id: 0, title: "baz", completed: false }),
+          visibility: "active",
+        })
+      ) === "string"
+    ).toBe(true);
+
+    expect(
+      TodoState.fromJson(
+        TodoState.toJson(
+          new TodoState({
+            todos: [new Todo({ id: 0, title: "foo", completed: false })],
+            newTodoTitle: "bar",
+            editedTodo: new Todo({ id: 0, title: "baz", completed: false }),
+            visibility: "active",
+          })
+        )
+      )
+    ).toMatchSnapshot();
   });
 
   cubitTest<TodoCubit, TodoState>("it emit [] when nothing added", {
@@ -21,7 +61,9 @@ describe("TodoCubit", () => {
     },
     expect: () => [
       new TodoState({ newTodoTitle: "foo" }),
-      new TodoState({ todos: [{ id: 0, title: "foo", completed: false }] }),
+      new TodoState({
+        todos: [new Todo({ id: 0, title: "foo", completed: false })],
+      }),
     ],
   });
 
@@ -39,23 +81,25 @@ describe("TodoCubit", () => {
   cubitTest<TodoCubit, TodoState>("it can edit todo", {
     build: () => todoCubit,
     seed: () =>
-      new TodoState({ todos: [{ id: 0, title: "foo", completed: false }] }),
+      new TodoState({
+        todos: [new Todo({ id: 0, title: "foo", completed: false })],
+      }),
     act: (cubit) => {
-      cubit.editTodo({ id: 0, title: "foo", completed: false });
+      cubit.editTodo(new Todo({ id: 0, title: "foo", completed: false }));
       cubit.updateEditingTodoTitle("bar");
       cubit.doneEdit();
     },
     expect: () => [
       new TodoState({
-        todos: [{ id: 0, title: "foo", completed: false }],
-        editedTodo: { id: 0, title: "foo", completed: false },
+        todos: [new Todo({ id: 0, title: "foo", completed: false })],
+        editedTodo: new Todo({ id: 0, title: "foo", completed: false }),
       }),
       new TodoState({
-        todos: [{ id: 0, title: "foo", completed: false }],
-        editedTodo: { id: 0, title: "bar", completed: false },
+        todos: [new Todo({ id: 0, title: "foo", completed: false })],
+        editedTodo: new Todo({ id: 0, title: "bar", completed: false }),
       }),
       new TodoState({
-        todos: [{ id: 0, title: "bar", completed: false }],
+        todos: [new Todo({ id: 0, title: "bar", completed: false })],
       }),
     ],
   });
@@ -87,23 +131,25 @@ describe("TodoCubit", () => {
     {
       build: () => todoCubit,
       seed: () =>
-        new TodoState({ todos: [{ id: 0, title: "foo", completed: false }] }),
+        new TodoState({
+          todos: [new Todo({ id: 0, title: "foo", completed: false })],
+        }),
       act: (cubit) => {
-        cubit.editTodo({ id: 0, title: "foo", completed: false });
+        cubit.editTodo(new Todo({ id: 0, title: "foo", completed: false }));
         cubit.updateEditingTodoTitle("");
         cubit.doneEdit();
       },
       expect: () => [
         new TodoState({
-          todos: [{ id: 0, title: "foo", completed: false }],
-          editedTodo: { id: 0, title: "foo", completed: false },
+          todos: [new Todo({ id: 0, title: "foo", completed: false })],
+          editedTodo: new Todo({ id: 0, title: "foo", completed: false }),
         }),
         new TodoState({
-          todos: [{ id: 0, title: "foo", completed: false }],
-          editedTodo: { id: 0, title: "", completed: false },
+          todos: [new Todo({ id: 0, title: "foo", completed: false })],
+          editedTodo: new Todo({ id: 0, title: "", completed: false }),
         }),
         new TodoState({
-          todos: [{ id: 0, title: "foo", completed: false }],
+          todos: [new Todo({ id: 0, title: "foo", completed: false })],
         }),
       ],
     }
@@ -112,23 +158,25 @@ describe("TodoCubit", () => {
   cubitTest<TodoCubit, TodoState>("it can cancel editing", {
     build: () => todoCubit,
     seed: () =>
-      new TodoState({ todos: [{ id: 0, title: "foo", completed: false }] }),
+      new TodoState({
+        todos: [new Todo({ id: 0, title: "foo", completed: false })],
+      }),
     act: (cubit) => {
-      cubit.editTodo({ id: 0, title: "foo", completed: false });
+      cubit.editTodo(new Todo({ id: 0, title: "foo", completed: false }));
       cubit.updateEditingTodoTitle("bar");
       cubit.cancelEdit();
     },
     expect: () => [
       new TodoState({
-        todos: [{ id: 0, title: "foo", completed: false }],
-        editedTodo: { id: 0, title: "foo", completed: false },
+        todos: [new Todo({ id: 0, title: "foo", completed: false })],
+        editedTodo: new Todo({ id: 0, title: "foo", completed: false }),
       }),
       new TodoState({
-        todos: [{ id: 0, title: "foo", completed: false }],
-        editedTodo: { id: 0, title: "bar", completed: false },
+        todos: [new Todo({ id: 0, title: "foo", completed: false })],
+        editedTodo: new Todo({ id: 0, title: "bar", completed: false }),
       }),
       new TodoState({
-        todos: [{ id: 0, title: "foo", completed: false }],
+        todos: [new Todo({ id: 0, title: "foo", completed: false })],
       }),
     ],
   });
@@ -145,18 +193,146 @@ describe("TodoCubit", () => {
     ],
   });
 
+  cubitTest<TodoCubit, TodoState>("it should not filter todos by default", {
+    build: () => todoCubit,
+    seed: () =>
+      new TodoState({
+        todos: [
+          new Todo({ id: 0, title: "foo", completed: false }),
+          new Todo({ id: 1, title: "bar", completed: true }),
+        ],
+      }),
+    expect: () => [],
+    verify: (cubit) => {
+      expect(cubit.state.filteredTodos).toEqual([
+        new Todo({ id: 0, title: "foo", completed: false }),
+        new Todo({ id: 1, title: "bar", completed: true }),
+      ]);
+    },
+  });
+
+  cubitTest<TodoCubit, TodoState>(
+    "it should filter todos after change visibility to active",
+    {
+      build: () => todoCubit,
+      seed: () =>
+        new TodoState({
+          todos: [
+            new Todo({ id: 0, title: "foo", completed: false }),
+            new Todo({ id: 1, title: "bar", completed: true }),
+          ],
+        }),
+      act: (cubit) => {
+        cubit.updateVisibility("active");
+      },
+      expect: () => [
+        new TodoState({
+          visibility: "active",
+          todos: [
+            new Todo({ id: 0, title: "foo", completed: false }),
+            new Todo({ id: 1, title: "bar", completed: true }),
+          ],
+        }),
+      ],
+      verify: (cubit) => {
+        expect(cubit.state.filteredTodos).toEqual([
+          new Todo({ id: 0, title: "foo", completed: false }),
+        ]);
+      },
+    }
+  );
+
+  cubitTest<TodoCubit, TodoState>(
+    "it should filter todos after change visibility to completed",
+    {
+      build: () => todoCubit,
+      seed: () =>
+        new TodoState({
+          todos: [
+            new Todo({ id: 0, title: "foo", completed: false }),
+            new Todo({ id: 1, title: "bar", completed: true }),
+          ],
+        }),
+      act: (cubit) => {
+        cubit.updateVisibility("completed");
+      },
+      expect: () => [
+        new TodoState({
+          visibility: "completed",
+          todos: [
+            new Todo({ id: 0, title: "foo", completed: false }),
+            new Todo({ id: 1, title: "bar", completed: true }),
+          ],
+        }),
+      ],
+      verify: (cubit) => {
+        expect(cubit.state.filteredTodos).toEqual([
+          new Todo({ id: 1, title: "bar", completed: true }),
+        ]);
+      },
+    }
+  );
+
+  cubitTest<TodoCubit, TodoState>("it should correctly compute allDone", {
+    build: () => todoCubit,
+    seed: () =>
+      new TodoState({
+        todos: [
+          new Todo({ id: 0, title: "foo", completed: false }),
+          new Todo({ id: 1, title: "bar", completed: true }),
+        ],
+      }),
+    expect: () => [],
+    verify: (cubit) => {
+      expect(cubit.state.allDone).toBe(false);
+    },
+  });
+
+  cubitTest<TodoCubit, TodoState>("it should correctly compute remainingText", {
+    build: () => todoCubit,
+    seed: () =>
+      new TodoState({
+        todos: [
+          new Todo({ id: 0, title: "foo", completed: false }),
+          new Todo({ id: 1, title: "bar", completed: true }),
+        ],
+      }),
+    expect: () => [],
+    verify: (cubit) => {
+      expect(cubit.state.remainingText).toBe("1 item left");
+    },
+  });
+
+  cubitTest<TodoCubit, TodoState>(
+    "it should correctly pluralize remainingText",
+    {
+      build: () => todoCubit,
+      seed: () =>
+        new TodoState({
+          todos: [
+            new Todo({ id: 0, title: "foo", completed: true }),
+            new Todo({ id: 1, title: "bar", completed: true }),
+          ],
+        }),
+      expect: () => [],
+      verify: (cubit) => {
+        expect(cubit.state.remainingText).toBe("2 items left");
+      },
+    }
+  );
+
   cubitTest<TodoCubit, TodoState>("it can toggle todo", {
     build: () => todoCubit,
     seed: () =>
       new TodoState({
-        todos: [{ id: 0, title: "foo", completed: false }],
+        todos: [new Todo({ id: 0, title: "foo", completed: false })],
       }),
     act: (cubit) => {
       cubit.toggleTodo(0);
     },
     expect: () => [
       new TodoState({
-        todos: [{ id: 0, title: "foo", completed: true }],
+        todos: [new Todo({ id: 0, title: "foo", completed: true })],
       }),
     ],
   });
@@ -166,8 +342,8 @@ describe("TodoCubit", () => {
     seed: () =>
       new TodoState({
         todos: [
-          { id: 0, title: "foo", completed: true },
-          { id: 1, title: "bar", completed: false },
+          new Todo({ id: 0, title: "foo", completed: true }),
+          new Todo({ id: 1, title: "bar", completed: false }),
         ],
       }),
     act: (cubit) => {
@@ -176,8 +352,8 @@ describe("TodoCubit", () => {
     expect: () => [
       new TodoState({
         todos: [
-          { id: 0, title: "foo", completed: true },
-          { id: 1, title: "bar", completed: true },
+          new Todo({ id: 0, title: "foo", completed: true }),
+          new Todo({ id: 1, title: "bar", completed: true }),
         ],
       }),
     ],
@@ -188,8 +364,8 @@ describe("TodoCubit", () => {
     seed: () =>
       new TodoState({
         todos: [
-          { id: 0, title: "foo", completed: true },
-          { id: 1, title: "bar", completed: false },
+          new Todo({ id: 0, title: "foo", completed: true }),
+          new Todo({ id: 1, title: "bar", completed: false }),
         ],
       }),
     act: (cubit) => {
@@ -198,8 +374,8 @@ describe("TodoCubit", () => {
     expect: () => [
       new TodoState({
         todos: [
-          { id: 0, title: "foo", completed: false },
-          { id: 1, title: "bar", completed: false },
+          new Todo({ id: 0, title: "foo", completed: false }),
+          new Todo({ id: 1, title: "bar", completed: false }),
         ],
       }),
     ],
@@ -210,8 +386,8 @@ describe("TodoCubit", () => {
     seed: () =>
       new TodoState({
         todos: [
-          { id: 0, title: "foo", completed: true },
-          { id: 1, title: "bar", completed: false },
+          new Todo({ id: 0, title: "foo", completed: true }),
+          new Todo({ id: 1, title: "bar", completed: false }),
         ],
       }),
     act: (cubit) => {
@@ -219,7 +395,7 @@ describe("TodoCubit", () => {
     },
     expect: () => [
       new TodoState({
-        todos: [{ id: 1, title: "bar", completed: false }],
+        todos: [new Todo({ id: 1, title: "bar", completed: false })],
       }),
     ],
   });
@@ -229,8 +405,8 @@ describe("TodoCubit", () => {
     seed: () =>
       new TodoState({
         todos: [
-          { id: 0, title: "foo", completed: true },
-          { id: 1, title: "bar", completed: false },
+          new Todo({ id: 0, title: "foo", completed: true }),
+          new Todo({ id: 1, title: "bar", completed: false }),
         ],
       }),
     act: (cubit) => {
@@ -238,7 +414,7 @@ describe("TodoCubit", () => {
     },
     expect: () => [
       new TodoState({
-        todos: [{ id: 1, title: "bar", completed: false }],
+        todos: [new Todo({ id: 1, title: "bar", completed: false })],
       }),
     ],
   });

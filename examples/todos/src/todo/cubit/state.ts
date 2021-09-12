@@ -68,10 +68,9 @@ export class TodoState {
     visibility?: keyof typeof filters;
   }) {
     return new TodoState({
-      todos: todos ?? JSON.parse(JSON.stringify(this.todos)),
+      todos: todos ?? this.todos.map((todo) => todo.copyWith({})),
       newTodoTitle: newTodoTitle ?? this.newTodoTitle,
-      editedTodo:
-        editedTodo == null ? undefined : JSON.parse(JSON.stringify(editedTodo)),
+      editedTodo: editedTodo == null ? undefined : editedTodo.copyWith({}),
       visibility: visibility ?? this.visibility,
     });
   }
@@ -79,7 +78,9 @@ export class TodoState {
   static fromJson(json: string): TodoState {
     const object = JSON.parse(json);
     return new TodoState({
-      todos: object["todos"],
+      todos: (object["todos"] as string[]).map((todoJson) =>
+        Todo.fromJson(todoJson)
+      ),
       newTodoTitle: object["newTodoTitle"],
       editedTodo: object["editedTodo"],
       visibility: object["visibility"],
@@ -88,7 +89,7 @@ export class TodoState {
 
   static toJson(instance: TodoState): string {
     return JSON.stringify({
-      todos: instance.todos,
+      todos: instance.todos.map((todoInstance) => Todo.toJson(todoInstance)),
       newTodoTitle: instance.newTodoTitle,
       editedTodo: instance.editedTodo,
       visibility: instance.visibility,
